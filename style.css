@@ -1,0 +1,25 @@
+body {
+  font-family: Arial, sans-serif;
+}
+
+.option {
+  background-color: #f0f0f0;
+  border: 1px solid #ccc;
+  padding: 5px 10px; 
+  display: inline-block;
+  cursor: pointer;
+}
+
+.drop-zone {
+  border: 2px dashed #aaa;
+  min-height: 100px; 
+  width: 50%; 
+  margin: 0 auto; 
+  margin-top: 20px; 
+  padding: 10px;
+  text-align: center; 
+}
+
+.drop-zone.hovered {
+  border-color: #333;
+}
