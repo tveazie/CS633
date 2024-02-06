@@ -1,46 +1,55 @@
-var selectedAnswers = [];
+const dropZone = document.getElementById('dropZone');
 
-function allowDrop(event) {
-    event.preventDefault();
+dropZone.addEventListener('dragover', dragOver);
+dropZone.addEventListener('dragenter', dragEnter);
+dropZone.addEventListener('dragleave', dragLeave);
+dropZone.addEventListener('drop', drop);
+
+function dragOver(e) {
+  e.preventDefault();
+  console.log('dragOver');
 }
 
-function drag(event) {
-    event.dataTransfer.setData("text", event.target.textContent);
+function dragEnter(e) {
+  e.preventDefault();
+  this.classList.add('hovered');
+  console.log('dragEnter');
 }
 
-function drop(event) {
-    event.preventDefault();
-    const data = event.dataTransfer.getData("text");
-    const draggableElement = document.createElement("div");
-    draggableElement.textContent = data;
-    draggableElement.className = "draggable";
+function dragLeave() {
+  console.log('dragLeave');
+}
 
-    const draggableList = document.getElementById("answer-container");
-    const draggedItem = document.querySelector('.draggable[data-answer="' + data + '"]');
+function drop(e) {
+  e.preventDefault();
+  const optionId = e.dataTransfer.getData('text/plain');
+  console.log('Dropped option ID:', optionId);
+  const option = document.getElementById(optionId);
+  console.log('Dropped option:', option);
+  this.appendChild(option);
+  this.classList.remove('hovered');
+  console.log('drop');
+}
 
-    if (draggedItem) {
-        draggableList.removeChild(draggedItem);
+function evaluateAnswers() {
+  let correctAnswers = 0;
+  const answers = {
+    "What is doc control?": ['Documentum', 'Collabnet Teamforge', 'AccuRev'],
+  };
+
+
+  Object.keys(answers).forEach(question => {
+    const dropZone = document.getElementById(question);
+    const optionId = dropZone.children[0].id;
+    const optionText = document.getElementById(optionId).textContent;
+
+    if (answers[question].includes(optionText)) {
+      correctAnswers++;
     }
-
-    document.getElementById("droppable-area").appendChild(draggableElement);
-
-    selectedAnswers.push(data);
-}
-
-function checkAnswerAndProceed(nextPage, correctAnswers) {
-    const isCorrect = arraysEqual(selectedAnswers, correctAnswers);
-
-    if (isCorrect) {
-        userScore++;
-    }
+  });
 
 
-    function arraysEqual(arr1, arr2) {
-        return JSON.stringify(arr1) === JSON.stringify(arr2);
-    }
-
-    var userScore = 0;
-}
-function goToNextPage(nextPage) {
-    window.location.href = nextPage;
+  const totalQuestions = Object.keys(answers).length;
+  alert(`You got ${correctAnswers} out of ${totalQuestions} correct.`);
+  console.log(`You got ${correctAnswers} out of ${totalQuestions} correct.`);
 }
