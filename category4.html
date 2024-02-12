@@ -1,67 +1,62 @@
 <!DOCTYPE html>
 <html>
-    <head> 
-        <title>Software Tool Evaluation</title>
-        <link rel="stylesheet" href = "style.css">
-        <a href="index.html"></a>
-        <a href="category5.html"></a>
-        <a href="category1.html"></a>
 
-    </head>
-    <body>
-        <body>
+<head>
+    <title>Software Tool Evaluation</title>
+    <link rel="stylesheet" href="style.css">
+</head>
 
-            <div id="quiz-container">
-                <div id="question-container">
-                    <h3>What tool(s) go into Defect Tracking?</h3>
-                    <p>Drag the answer here:</p>
-                    <div id="quiz-container">
-                        <div id="question" class="page">
-                            <p>Drag the correct answer to the box:</p>
-                            <div id="answers" class="page">
-                                <div id="answer-box" class="page">
-                                    <p>Answer Box:</p>
-                                    <div id="droppable-area" class="droppable" ondrop="drop(event)"
-                                        ondragover="allowDrop(event)"></div>
-                                </div>
-        
-                                <ul id="answer-container">
-                                    <li class="draggable" draggable="true" ondragstart="drag(event)">Veracode</li>
-                                    <li class="draggable" draggable="true" ondragstart="drag(event)">Clear Case</li>
-                                    <li class="draggable" draggable="true" ondragstart="drag(event)">Collaborator Smart Bear
-                                    </li>
-                                    <li class="draggable" draggable="true" ondragstart="drag(event)">Render</li>
-                                    <li class="draggable" draggable="true" ondragstart="drag(event)">Documentum</li>
-                                    <li class="draggable" draggable="true" ondragstart="drag(event)">Bard</li>
-                                    <li class="draggable" draggable="true" ondragstart="drag(event)">Jira</li>
-                                    <li class="draggable" draggable="true" ondragstart="drag(event)">Bugzilla</li>
-                                    <li class="draggable" draggable="true" ondragstart="drag(event)">HP Quality Center</li>
-                                    <li class="draggable" draggable="true" ondragstart="drag(event)">Rally</li>
-                                    <li class="draggable" draggable="true" ondragstart="drag(event)">VersionOne</li>
-                                    <li class="draggable" draggable="true" ondragstart="drag(event)">GitHub</li>
-                                    <li class="draggable" draggable="true" ondragstart="drag(event)">Mockito</li>
-                                    <li class="draggable" draggable="true" ondragstart="drag(event)">Collabnet Teamforge</li>
-                                    <li class="draggable" draggable="true" ondragstart="drag(event)">Zephyr</li>
-                                    <li class="draggable" draggable="true" ondragstart="drag(event)">WebEX</li>
-                                    <li class="draggable" draggable="true" ondragstart="drag(event)">SonarQube</li>
-                                    <li class="draggable" draggable="true" ondragstart="drag(event)">Linode</li>
-                                    <li class="draggable" draggable="true" ondragstart="drag(event)">Crucible</li>
-                                    <li class="draggable" draggable="true" ondragstart="drag(event)">Zoom</li>
-                                    <li class="draggable" draggable="true" ondragstart="drag(event)">ChatGPT</li>
-                                    <li class="draggable" draggable="true" ondragstart="drag(event)">gMock</li>
-                                    <li class="draggable" draggable="true" ondragstart="drag(event)">AccuRev</li>
-                                </ul>
-                            </div>
-                            <button onclick="goToNextPage('category5.html')">Next</button>
-                        </div>
-                    </div>
-                </div>
-                <script src="java.js"></script>
+<body>
+    <h1>Defect Tracking</h1>
+    <h3>Defect tracking is the process of identifying, documenting, and managing issues or flaws in software during its
+        development lifecycle. It involves monitoring and recording details about defects, such as their nature,
+        severity, and resolution status, to ensure effective problem resolution and improve overall software quality.
+    </h3>
+
+    <div class="quiz-container">
+        <div class="question">Drag and drop the correct options to their matching drop zones.</div>
+        <div class="container-box">
+            <div class="options-container">
+                <div id="optionVeracode" class="option" draggable="true">Veracode</div>
+                <div id="optionClearCase" class="option" draggable="true">Clear Case</div>
+                <div id="optionCollaborator" class="option" draggable="true">Collaborator Smart Bear</div>
+                <div id="optionRender" class="option" draggable="true">Render</div>
+                <div id="optionDocumentum" class="option" draggable="true">Documentum</div>
+                <div id="optionBard" class="option" draggable="true">Bard</div>
+                <div id="optionJira" class="option" draggable="true">Jira</div>
+                <div id="optionBugzilla" class="option" draggable="true">Bugzilla</div>
+                <div id="optionHP" class="option" draggable="true">HP Quality Center</div>
+                <div id="optionRally" class="option" draggable="true">Rally</div>
+                <div id="optionVersionOne" class="option" draggable="true">VersionOne</div>
+                <div id="optionGitHub" class="option" draggable="true">GitHub</div>
+                <div id="optionMockito" class="option" draggable="true">Mockito</div>
+                <div id="optionCollabnet" class="option" draggable="true">Collabnet Teamforge</div>
+                <div id="optionZephyr" class="option" draggable="true">Zephyr</div>
+                <div id="optionWebEX" class="option" draggable="true">WebEX</div>
+                <div id="optionSonarQube" class="option" draggable="true">SonarQube</div>
+                <div id="optionLinode" class="option" draggable="true">Linode</div>
+                <div id="optionCrucible" class="option" draggable="true">Crucible</div>
+                <div id="optionZoom" class="option" draggable="true">Zoom</div>
+                <div id="optionChatGPT" class="option" draggable="true">ChatGPT</div>
+                <div id="optiongMock" class="option" draggable="true">gMock</div>
+                <div id="optionAccuRev" class="option" draggable="true">AccuRev</div>
             </div>
-        
-        </body>
-        
-        </html>
+            <div class="drop-box">
+                <div class="drop-zone" id="dropZone"></div>
+            </div>
+            <button id="submitBtn">Submit</button>
+            <button id="restartBtn">Restart</button>
+            <a href="category5.html">
+                <button id="nextpage">Next Question</button>
+            </a>
+        </div>
+    </div>
+    <script src="java4.js"></script>
 
-    </body>
+</body>
+
+</html>
+
+</body>
+
 </html>
