@@ -1,25 +1,45 @@
 body {
   font-family: Arial, sans-serif;
+  text-align: center;
+  background-color:rgb(184, 181, 214)
+}
+
+.question{
+margin-top: 40px;
 }
 
 .option {
-  background-color: #f0f0f0;
-  border: 1px solid #ccc;
-  padding: 5px 10px; 
+  background-color: #fffcfc;
+  border: 1px solid #848383;
+  border-radius: 5%;
+  padding: 5px 10px;
   display: inline-block;
   cursor: pointer;
+  margin-left: 5px; 
+  margin-top: 40px;
+}
+
+.drop-box {
+  text-align: center;
 }
 
 .drop-zone {
-  border: 2px dashed #aaa;
-  min-height: 100px; 
-  width: 50%; 
-  margin: 0 auto; 
-  margin-top: 20px; 
+  border: 2px solid #4013c9;
+  min-height: 100px;
+  width: 50%;
+  margin: 0 auto;
+  margin-top: 100px;
+  margin-bottom: 20px;
   padding: 10px;
-  text-align: center; 
+  text-align: center;
 }
 
 .drop-zone.hovered {
   border-color: #333;
+ 
+}
+
+button {
+  border-radius: 10%;
+  border-color:gray;
 }
