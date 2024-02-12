@@ -1,0 +1,12 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background-color:rgb(184, 181, 214);
+    margin-top: 300px;   
+  }
+  
+  button{
+    height: 50px;
+    width: 150px;
+    font-size: 20px;
+  }
