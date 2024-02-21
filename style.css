@@ -42,4 +42,20 @@ margin-top: 40px;
 button {
   border-radius: 10%;
   border-color:gray;
+  cursor: pointer;
+}
+
+#submitBtn {
+  margin-right: 50px;
+  margin-left: 50px;
+}
+
+#restartBtn {
+  margin-right: 50px;
+  margin-left: 50px;
+}
+
+#nextpage {
+  margin-right: 50px;
+  margin-left: 50px;
 }
