@@ -1,7 +1,7 @@
 body {
   font-family: Arial, sans-serif;
   text-align: center;
-  background-color:#E7EAF5;
+  background-color:#f5f5f5;
 }
 
 .question{
@@ -9,7 +9,7 @@ margin-top: 40px;
 }
 
 .option {
-  background-color: #fffcfc;
+  background-color: #f5f5f5;
   border: 1px solid #848383;
   border-radius: 5%;
   padding: 5px 10px;
@@ -24,7 +24,7 @@ margin-top: 40px;
 }
 
 .drop-zone {
-  border: 2px solid #4013c9;
+  border: 2px solid #0a0a0a;
   min-height: 100px;
   width: 50%;
   margin: 0 auto;
@@ -35,7 +35,7 @@ margin-top: 40px;
 }
 
 .drop-zone.hovered {
-  border-color: #333;
+  border-color: #a19a9a;
  
 }
 
