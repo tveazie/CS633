@@ -59,26 +59,32 @@ document.addEventListener("DOMContentLoaded", function() {
 
     function evaluateAnswers() {
         let totalCorrectAnswers = 0;
+        let totalSelections = 0;
         let totalPossibleAnswers = 0;
-    
+
         Object.keys(answers).forEach(question => {
             const correctOptions = answers[question].map(option => option.toLowerCase().trim());
             const dropZone = document.getElementById(question);
-    
+
             totalPossibleAnswers += correctOptions.length;
-    
+
             if (dropZone && dropZone.children.length > 0) {
                 const selectedOptions = Array.from(dropZone.children).map(option => option.textContent.toLowerCase().trim());
-    
-                const correctCount = selectedOptions.filter(option => correctOptions.includes(option)).length;
-                totalCorrectAnswers += correctCount;
+                totalSelections += selectedOptions.length;
+
+                correctOptions.forEach(correctOption => {
+                    if (selectedOptions.includes(correctOption)) {
+                        totalCorrectAnswers++;
+                    }
+                });
             }
         });
-    
+
+        const scoreMessage = totalSelections > 0 ? `You put ${totalSelections} in the drop box. You got ${totalCorrectAnswers} out of ${totalPossibleAnswers} correct.` : 'You did not make any selections.';
         const percentage = (totalCorrectAnswers / totalPossibleAnswers) * 100;
-    
-        alert(`You got ${totalCorrectAnswers} out of ${totalPossibleAnswers} correct. Your score is ${percentage.toFixed(2)}%.`);
-        console.log(`You got ${totalCorrectAnswers} out of ${totalPossibleAnswers} correct. Your score is ${percentage.toFixed(2)}%.`);
+
+        alert(`${scoreMessage} Your score is ${percentage.toFixed(2)}%.`);
+        console.log(`${scoreMessage} Your score is ${percentage.toFixed(2)}%.`);
     }
     
     function restartQuiz() {
