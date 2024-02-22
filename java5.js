@@ -1,4 +1,4 @@
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", function () {
     const dropZone = document.getElementById('dropZone');
 
     dropZone.addEventListener('dragover', dragOver);
@@ -15,6 +15,7 @@ document.addEventListener("DOMContentLoaded", function() {
         const optionId = event.target.id;
         event.dataTransfer.setData('text/plain', optionId);
     }
+
     function dragOver(e) {
         e.preventDefault();
         console.log('dragOver');
@@ -39,7 +40,7 @@ document.addEventListener("DOMContentLoaded", function() {
         console.log('Dropped option:', option);
         if (option) {
             const optionText = document.getElementById(optionId).textContent.trim();
-            console.log('Option text:', optionText); 
+            console.log('Option text:', optionText);
             this.appendChild(option);
             this.classList.remove('hovered');
         } else {
@@ -50,43 +51,47 @@ document.addEventListener("DOMContentLoaded", function() {
     document.getElementById('submitBtn').addEventListener('click', evaluateAnswers);
     document.getElementById('restartBtn').addEventListener('click', restartQuiz);
 
+    const possibleAnswers = ['Veracode', 'Clear Case', 'Collaborator Smart Bear', 'Render', 'Documentum', 'Bard', 'Jira', 'Bugzilla', 'HP Quality Center', 'Rally', 'VersionOne', 'GitHub', 'Mockito', 'Collabnet Teamforge', 'Zephyr', 'WebEX', 'SonarQube', 'Linode', 'Crucible', 'Zoom', 'ChatGPT', 'gMock', 'AccuRev'];
+
     const answers = {};
     const dropZones = document.querySelectorAll('.drop-zone');
     dropZones.forEach(dropZone => {
         const question = dropZone.getAttribute('id');
-        answers[question] = ['Jira', 'Zephyr']; 
+        answers[question] = ['Jira', 'Zephyr'];
     });
 
     function evaluateAnswers() {
         let totalCorrectAnswers = 0;
-        let totalSelections = 0;
-        let totalPossibleAnswers = 0;
+        let totalPossibleCorrectAnswers = 0;
+
+        const totalSelectedOptions = document.querySelectorAll('.drop-zone .option').length;
+        if (totalSelectedOptions > 2) {
+            alert("Error: Select only 2 answers.");
+            return;
+        }
 
         Object.keys(answers).forEach(question => {
             const correctOptions = answers[question].map(option => option.toLowerCase().trim());
             const dropZone = document.getElementById(question);
 
-            totalPossibleAnswers += correctOptions.length;
-
             if (dropZone && dropZone.children.length > 0) {
                 const selectedOptions = Array.from(dropZone.children).map(option => option.textContent.toLowerCase().trim());
-                totalSelections += selectedOptions.length;
 
-                correctOptions.forEach(correctOption => {
-                    if (selectedOptions.includes(correctOption)) {
+                selectedOptions.forEach(option => {
+                    if (correctOptions.includes(option)) {
                         totalCorrectAnswers++;
                     }
                 });
             }
+            totalPossibleCorrectAnswers += correctOptions.length;
         });
 
-        const scoreMessage = totalSelections > 0 ? `You put ${totalSelections} in the drop box. You got ${totalCorrectAnswers} out of ${totalPossibleAnswers} correct.` : 'You did not make any selections.';
-        const percentage = (totalCorrectAnswers / totalPossibleAnswers) * 100;
+        const score = ((totalCorrectAnswers) / (totalPossibleCorrectAnswers)) * 100;
 
-        alert(`${scoreMessage} Your score is ${percentage.toFixed(2)}%.`);
-        console.log(`${scoreMessage} Your score is ${percentage.toFixed(2)}%.`);
+        alert(`You got ${totalCorrectAnswers} correct out of ${totalPossibleCorrectAnswers} possible correct answers. Your score is ${score.toFixed(2)}%.`);
+        console.log(`You got ${totalCorrectAnswers} correct out of ${totalPossibleCorrectAnswers} possible correct answers. Your score is ${score.toFixed(2)}%.`);
     }
-    
+
     function restartQuiz() {
         location.reload();
     }
