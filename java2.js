@@ -57,38 +57,39 @@ document.addEventListener("DOMContentLoaded", function () {
     const dropZones = document.querySelectorAll('.drop-zone');
     dropZones.forEach(dropZone => {
         const question = dropZone.getAttribute('id');
-        answers[question] =['Clear Case', 'Github'];
+        answers[question] = ['Clear Case', 'GitHub'];
     });
 
     function evaluateAnswers() {
         let totalCorrectAnswers = 0;
-        let totalSelections = 0;
-        let totalPossibleAnswers = 0;
-        let totalIncorrectAnswers = 0;
-    
+        let totalPossibleCorrectAnswers = 0;
+
+        const totalSelectedOptions = document.querySelectorAll('.drop-zone .option').length;
+        if (totalSelectedOptions > 2) {
+            alert("Error: Select only 2 answers.");
+            return;
+        }
+
         Object.keys(answers).forEach(question => {
             const correctOptions = answers[question].map(option => option.toLowerCase().trim());
             const dropZone = document.getElementById(question);
-    
-            totalPossibleAnswers += correctOptions.length;
-    
+
             if (dropZone && dropZone.children.length > 0) {
                 const selectedOptions = Array.from(dropZone.children).map(option => option.textContent.toLowerCase().trim());
-                totalSelections += selectedOptions.length;
-    
-                const correctCount = selectedOptions.filter(option => correctOptions.includes(option)).length;
-                totalCorrectAnswers += correctCount;
-                totalIncorrectAnswers += Math.max(selectedOptions.length - correctCount, 0);    
-            } else {
-                totalIncorrectAnswers += correctOptions.length; 
+
+                selectedOptions.forEach(option => {
+                    if (correctOptions.includes(option)) {
+                        totalCorrectAnswers++;
+                    }
+                });
             }
+            totalPossibleCorrectAnswers += correctOptions.length;
         });
-    
-        const scoreMessage = `${totalCorrectAnswers} correct and ${totalIncorrectAnswers} incorrect`;
-        const percentage = (totalCorrectAnswers / totalPossibleAnswers) * 100;
-    
-        alert(`You got ${scoreMessage}. Your score is ${percentage.toFixed(2)}%.`);
-        console.log(`${scoreMessage}. Your score is ${percentage.toFixed(2)}%.`);
+
+        const score = ((totalCorrectAnswers) / (totalPossibleCorrectAnswers)) * 100;
+
+        alert(`You got ${totalCorrectAnswers} correct out of ${totalPossibleCorrectAnswers} possible correct answers. Your score is ${score.toFixed(2)}%.`);
+        console.log(`You got ${totalCorrectAnswers} correct out of ${totalPossibleCorrectAnswers} possible correct answers. Your score is ${score.toFixed(2)}%.`);
     }
 
     function restartQuiz() {
