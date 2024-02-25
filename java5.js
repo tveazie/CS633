@@ -57,7 +57,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const dropZones = document.querySelectorAll('.drop-zone');
     dropZones.forEach(dropZone => {
         const question = dropZone.getAttribute('id');
-        answers[question] = ['Jira', 'Zephyr'];
+        answers[question] = ['HP Quality Center', 'Zephyr'];
     });
 
     function evaluateAnswers() {
