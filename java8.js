@@ -57,7 +57,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const dropZones = document.querySelectorAll('.drop-zone');
     dropZones.forEach(dropZone => {
         const question = dropZone.getAttribute('id');
-        answers[question] = ['WebEX', 'Zoom'];;
+        answers[question] = ['WebEX', 'Zoom'];
     });
 
     function evaluateAnswers() {
