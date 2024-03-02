@@ -57,7 +57,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const dropZones = document.querySelectorAll('.drop-zone');
     dropZones.forEach(dropZone => {
         const question = dropZone.getAttribute('id');
-        answers[question] = ['Bugzilla'];
+        answers[question] = ['Jira', 'Bugzilla'];
     });
 
     function evaluateAnswers() {
@@ -65,8 +65,8 @@ document.addEventListener("DOMContentLoaded", function () {
         let totalPossibleCorrectAnswers = 0;
 
         const totalSelectedOptions = document.querySelectorAll('.drop-zone .option').length;
-        if (totalSelectedOptions > 1) {
-            alert("Error: Select only 1 answer.");
+        if (totalSelectedOptions > 2) {
+            alert("Error: Select only 2 answers.");
             return;
         }
 
