@@ -51,7 +51,7 @@ document.addEventListener("DOMContentLoaded", function () {
     document.getElementById('submitBtn').addEventListener('click', evaluateAnswers);
     document.getElementById('restartBtn').addEventListener('click', restartQuiz);
 
-    const possibleAnswers = ['Veracode', 'Clear Case', 'Collaborator Smart Bear', 'Render', 'Documentum', 'Bard', 'Jira', 'Bugzilla', 'HP Quality Center', 'Rally', 'VersionOne', 'GitHub', 'Mockito', 'Collabnet Teamforge', 'Zephyr', 'WebEX', 'SonarQube', 'Linode', 'Crucible', 'Zoom', 'ChatGPT', 'gMock', 'AccuRev'];
+    const possibleAnswers = ['Veracode', 'Clear Case', 'Collaborator Smart Bear', 'Render', 'Documentum', 'Bard', 'Jira', 'Bugzilla', 'HP Quality Center', 'Rally', 'VersionOne', 'GitHub', 'Mockito', 'Collabnet Teamforge', 'Zephyr', 'WebEX', 'SonarQube', 'Linode', 'Crucible', 'Zoom', 'ChatGPT', 'gMock'];
 
     const answers = {};
     const dropZones = document.querySelectorAll('.drop-zone');
